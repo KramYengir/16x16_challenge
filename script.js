@@ -31,6 +31,14 @@ function createGrid(sideSize){
             
             let box = document.createElement('div');
             box.classList.add('box');
+
+            //add eventlistener to each box
+            box.addEventListener('mouseover', () => {
+                box.style.backgroundColor = getRandomColor();
+                console.log(getRandomColor());
+            })
+
+            
         
             row.appendChild(box);
         }
@@ -49,6 +57,13 @@ function resetGrid(){
         container.removeChild(row);
     })
 }
+
+function getRandomColor(){
+    return "#" + (Math.floor(Math.random() * 2 ** 24))
+                    .toString(16)
+                    .padStart(0, 6);
+}
+
 //Initilize
 createGrid(16);
 
